@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
       const open = nav.style.display === 'flex';
-      nav.style.display = open ? 'none' : 'flex';
+            if (open) { nav.removeAttribute('style'); return; } nav.style.display = 'flex';
       nav.style.flexDirection = 'column';
       nav.style.position = 'absolute';
       nav.style.top = '76px';
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.style.padding = '20px 24px';
       nav.style.gap = '18px';
     });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.style.display = 'none'; }));
+        nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.removeAttribute('style'); }));
   }
 });
 
